@@ -1,23 +1,22 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+# Firebase config files
+/src/firebaseConfig.js
+/config.js
+/secrets.json
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyCtpV5w3_iMvA4Vu5r1ApUL6d0CioszIYM",
-  authDomain: "qubot-cfffd.firebaseapp.com",
-  databaseURL: "https://qubot-cfffd-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "qubot-cfffd",
-  storageBucket: "qubot-cfffd.firebasestorage.app",
-  messagingSenderId: "1052852162190",
-  appId: "1:1052852162190:web:38bbff3a65ced5926683df",
-  measurementId: "G-S7G1623FLJ"
-};
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-node_modules
+# Firebase Admin SDK service account key
+serviceAccountKey.json
+
+# Node.js dependencies (if applicable)
+/node_modules
+/dist
+/build
+
+# IDE-specific files (optional)
+/.vscode
+/.idea
