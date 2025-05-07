@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { Container, AppBar, Toolbar, Typography, Button, Tooltip} from "@mui/material";
+import { Container, AppBar, Toolbar, Typography, Button, Tooltip, IconButton} from "@mui/material";
+import MenuIcon from "./MenuIcon.tsx"; 
 
 function Header() {
     return (     
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+                    <MenuIcon/>
                     <Typography
                         variant="h6"
                         noWrap
