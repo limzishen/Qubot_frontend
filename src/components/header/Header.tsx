@@ -4,7 +4,7 @@ import MenuIcon from "./MenuIcon.tsx";
 
 function Header() {
     return (     
-        <AppBar position="fixed">
+        <AppBar position="fixed" margin = "10">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <MenuIcon/>
