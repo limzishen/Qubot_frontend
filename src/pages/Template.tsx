@@ -1,56 +1,38 @@
 import Header from "../components/header/Header.tsx"
 import React from 'react';
-import { Typography, Button, Tooltip, Box } from "@mui/material";
-import placeholderImage from './placeholder.svg'; 
+import { Box, Grid } from "@mui/material";
+import placeholderGraph from '../placeholder-image/placeholder-graph.png'; 
 
 function Template () {
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-            `<Header/> 
-            <Box 
-            sx={{width: 500, 
-                height: 500, 
-                padding: 0, 
-                display: "flex", 
-                alignItems: "center", 
-                justifyContent: "center",
-                }}>
-                <img src = {placeholderImage} alt = "placeholder"  
-                    style={{ maxWidth: '100%', maxHeight: '100%', display: 'block', margin: 'auto' }}/>
+        <>
+        <Header/>
+        <Grid container spacing={2} sx={{ paddingTop: '64px' }}>
+        <Grid item> 
+          icon
+        </Grid>
+        
+        <Grid item> 
+          <Box sx={{ backgroundColor: 'lightgreen', padding: 2 }}>
+            something here that can refresh graph 
+          </Box>
+        </Grid>
+      </Grid>
 
+      <Grid container spacing={2} sx={{ paddingTop: '64px' }}>
+        <Grid item xs={2} sm={2} md={2} lg={2} xl={2} size={6}>
+            <Box sx={{ width: '50%', height: 'auto', display: 'flex'}}>
+                <img src = {placeholderGraph} alt = "placeholder" max-width = "20%" max-height = "100%"/> 
             </Box>
-            <Box sx={{
-                    border: '2px solid blue',
-                    margin: '0',
-                    padding: '0',
-                }}>
-                <Typography variant="h1" align="center"
-                sx={{
-                    align: "center", 
-                    color: "primary.main",
-                }}>
-                    Welcome to Qubot
-                </Typography>
-            </Box>`
-
-            <Box sx={{
-                    border: '2px solid blue',
-                    margin: '0',
-                    padding: '0',
-                }}>
-                <Typography variant="subtitle1" align="center"
-                    sx={{
-                        align: "center", 
-                        color: "primary.main"
-                    }}> 
-                    Join Qubot to get started on your financial journey
-                    </Typography>
+        </Grid>
+        <Grid item xs={2} sm={2} md={2}>
+            <Box>
+                chat bot here 
             </Box>
-            <Button> 
-                Get Started 
-            </Button>
+        </Grid>
+      </Grid>
 
-        </Box>
+      </>
     );
 }
 
