@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Container, AppBar, Toolbar, Typography, Button, Tooltip, IconButton} from "@mui/material";
-import MenuIcon from "./MenuIcon.tsx"; 
+import MenuIcon from "./MenuIcon"; 
 
 function Header() {
     return (     

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Home from './pages/Home.tsx';
-import Template from './pages/Template.tsx';
+import Home from './pages/Home';
+import Template from './pages/Template';
 
 function App() {
   return (

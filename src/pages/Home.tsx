@@ -1,4 +1,4 @@
-import Header from "../components/header/Header.tsx"
+import Header from "../components/header/Header"
 import React from 'react';
 import { Typography, Button, Tooltip, Box } from "@mui/material";
 import placeholderImage from './placeholder.svg'; 
