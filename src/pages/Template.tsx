@@ -1,20 +1,23 @@
 import Header from "../components/header/Header"
 import React from 'react';
 import { Typography, Button, Tooltip, Box } from "@mui/material";
-import StockChart from "../components/StockChart/StockChart";
-import { Ticker } from "../types/Ticker";  
+import CandleStick from '../components/StockChart/CandleStick'; 
+import StockDataProps from '../types/StockDataProps';
+
+
 
 
 function Template () {
-    const tickerData: Ticker = {
-        ticker: "AAPL",
-        range: "1mo",
-        interval: "1d"
-    };
+    const props: StockDataProps = {
+        ticker: 'AAPL',
+        from: '2024-01-01',
+        to: '2025-01-31'
+    }; 
 
     return (
         <>
-            <StockChart ticker={tickerData}/>
+            <Header />
+            <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
         </>
     );
 }
