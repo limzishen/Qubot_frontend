@@ -1,57 +1,24 @@
 import Header from "../components/header/Header"
 import React from 'react';
 import { Typography, Button, Tooltip, Box } from "@mui/material";
-import StockChart from "../components/StockChart/StockChart";
-import { Ticker } from "../types/Ticker";  
-
-
-function Template () {
-    const tickerData: Ticker = {
-        ticker: "AAPL",
-        range: "1mo",
-        interval: "1d"
-    };
-
-    return (
-        <>
-            <StockChart ticker={tickerData}/>
-        </>
-
-import { Box, Grid } from "@mui/material";
-import placeholderGraph from '../placeholder-image/placeholder-graph.png'; 
+import CandleStick from '../components/StockChart/CandleStick'; 
+import StockDataProps from '../types/StockDataProps';
 
 function Template () {
-    return (
+    const props: StockDataProps = {
+        ticker: 'AAPL',
+        from: '2024-01-01',
+        to: '2025-01-31'
+    }; 
+
+    return(
         <>
         <Header/>
-        <Grid container spacing={2} sx={{ paddingTop: '64px' }}>
-        <Grid item> 
-          icon
-        </Grid>
-        
-        <Grid item> 
-          <Box sx={{ backgroundColor: 'lightgreen', padding: 2 }}>
-            something here that can refresh graph 
-          </Box>
-        </Grid>
-      </Grid>
+        <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
+        </>
 
-      <Grid container spacing={2} sx={{ paddingTop: '64px' }}>
-        <Grid item xs={2} sm={2} md={2} lg={2} xl={2} size={6}>
-            <Box sx={{ width: '50%', height: 'auto', display: 'flex'}}>
-                <img src = {placeholderGraph} alt = "placeholder" max-width = "20%" max-height = "100%"/> 
-            </Box>
-        </Grid>
-        <Grid item xs={2} sm={2} md={2}>
-            <Box>
-                chat bot here 
-            </Box>
-        </Grid>
-      </Grid>
+    ); 
 
-      </>
-
-    );
 }
 
 export default Template;    
