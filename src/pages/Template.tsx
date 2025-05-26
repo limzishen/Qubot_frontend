@@ -4,9 +4,6 @@ import { Typography, Button, Tooltip, Box } from "@mui/material";
 import CandleStick from '../components/StockChart/CandleStick'; 
 import StockDataProps from '../types/StockDataProps';
 
-
-
-
 function Template () {
     const props: StockDataProps = {
         ticker: 'AAPL',
@@ -14,12 +11,14 @@ function Template () {
         to: '2025-01-31'
     }; 
 
-    return (
+    return(
         <>
-            <Header />
-            <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
+        <Header/>
+        <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
         </>
-    );
+
+    ); 
+
 }
 
 export default Template;    
