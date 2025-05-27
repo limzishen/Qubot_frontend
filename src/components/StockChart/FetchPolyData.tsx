@@ -13,7 +13,6 @@ async function FetchPolyData(DataProps: StockDataProps): Promise<ApexCandleStick
                 x: new Date(candle.t!), // Polygon timestamp is in Unix MS
                 y: [candle.o!, candle.h!, candle.l!, candle.c!], // open, high, low, close
             }));
-            console.log(result);
             return result;
         } else {
             console.warn("No data results found for the given parameters.");
