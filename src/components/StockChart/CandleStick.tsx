@@ -30,7 +30,7 @@ function CandleStick({ticker, from, to}: StockDataProps) {
           height: 350
         },
         title: {
-          text: 'CandleStick Chart',
+          text: ticker,
           align: 'left'
         },
         xaxis: {
