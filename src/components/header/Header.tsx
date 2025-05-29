@@ -4,7 +4,12 @@ import MenuIcon from "./MenuIcon";
 
 function Header() {
     return (     
-        <AppBar position="static" sx={{ margin: '10px' }}>
+        <AppBar position="static" 
+        sx={{   margin: '0px',
+                width: '100%', 
+                borderRadius: 29, 
+                marginBottom: 2,
+                backgroundColor: '#1B1A55'}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <MenuIcon/>

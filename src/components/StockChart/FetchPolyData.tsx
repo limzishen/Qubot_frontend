@@ -14,6 +14,7 @@ async function FetchPolyData(DataProps: StockDataProps): Promise<ApexCandleStick
                 y: [candle.o!, candle.h!, candle.l!, candle.c!], // open, high, low, close
             }));
             return result;
+            
         } else {
             console.warn("No data results found for the given parameters.");
             return undefined;
