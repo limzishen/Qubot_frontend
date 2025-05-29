@@ -2,16 +2,20 @@ import Header from "../components/header/Header"
 import React,  { useEffect, useState } from 'react';
 import CandleStick from '../components/StockChart/CandleStick'; 
 import StockDataProps from '../types/StockDataProps';
-import { Autocomplete, TextField } from '@mui/material';
+import { Autocomplete, TextField, Box } from '@mui/material';
 import { stockList } from './stockList'; 
 import dayjs, { Dayjs } from 'dayjs'; 
+import Grid from '@mui/system/Grid';
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import CssBaseline from '@mui/material/CssBaseline'; 
+import { useTheme } from '@mui/material/styles';
 
 function Template () {
 
+    const theme = useTheme();
     const today = dayjs();
     const [tickerState, setTickerState] = useState<string | null>('MSFT');
     const [fromState, setFromState] = useState<string>(today.subtract(1, 'year').format('YYYY-MM-DD'));
@@ -23,21 +27,13 @@ function Template () {
     };
 
     const handleToDate = (newValue: Dayjs | null) => {
-
-        if(!newValue) {
-            setToState(today.format('YYYY-MM-DD'));
-        } else  {
-            setToState(newValue.format('YYYY-MM-DD'));
-        }
+        console.log(newValue);
+        setToState(newValue ? newValue.format('YYYY-MM-DD') : today.format('YYYY-MM-DD'))
     }
 
     const handleFromDate = (newValue: Dayjs | null) => {
-
-        if(!newValue) {
-            setFromState(today.subtract(1, 'year').format('YYYY-MM-DD'));
-        } else  {
-            setFromState(newValue.format('YYYY-MM-DD'));
-        }
+        console.log(newValue);
+        setFromState(newValue ? newValue.format('YYYY-MM-DD') : today.subtract(1, 'year').format('YYYY-MM-DD'))
     }
 
     
@@ -49,34 +45,64 @@ function Template () {
 
     return(
         <>
+        <CssBaseline />
         <Header/>
-        <Autocomplete
+        < Grid container spacing={2}
+            sx={{marginBottom: 2,
+                marginLeft: 1
+            }}>
+            <Grid>
+            <Autocomplete
               disablePortal
               options={stockList}
-              sx={{ width: 300 }}
+              sx={{ width: 200,
+                    backgroundColor: theme.palette.primary.main,
+                    borderRadius: 29, 
+              }}
               renderInput={(params) => <TextField {...params} label="Ticker" />}
               value={tickerState} 
               onChange={handleTickerChange} />
-        
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          label="To Date"
-          value={dayjs(toState)}
-          onChange={handleToDate}
-          disableFuture
-        />
-        <DatePicker
-          label="From Date"
-          value={dayjs(fromState)}
-          onChange={handleFromDate}
-          disableFuture
-          minDate={dayjs(fromState)}
-        />
-        </LocalizationProvider>
-        
-        <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
-        </>
+              </Grid>
 
+              <Grid>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker
+                label="To Date"
+                value={dayjs(toState)}
+                onChange={handleToDate}
+                disableFuture
+                sx={{ width: 200,
+                    backgroundColor: theme.palette.primary.main,
+                    borderRadius: 29,
+                }}
+                />
+                </LocalizationProvider>
+              </Grid>
+
+              <Grid>    
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker
+                    label="From Date"
+                    value={dayjs(fromState)}
+                    onChange={handleFromDate}
+                    disableFuture
+                    minDate={today.subtract(2, 'year')}
+                    sx={{ width: 200,
+                    backgroundColor: theme.palette.primary.main,
+                    borderRadius: 29,
+                }}
+                    />
+                </LocalizationProvider>
+                </Grid>
+        </Grid>
+        
+        <Box
+        sx = {{ width: 4/9, 
+                height: 500,
+                color: '#535C91'}}>
+        <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
+        </Box>
+        </>
     ); 
 
 }
