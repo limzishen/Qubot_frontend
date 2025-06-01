@@ -43,23 +43,32 @@ Lack time for manual monitoring
 
 ## Current Progress (Milestone 1)
 ✅ Stock Market Data Visualizer
+
 ✅ Basic LSTM Forecasting Model
+
 ✅ Login & Registration Portal
+
 ✅ Initial integration with LLM API (fine-tuning and RAG implementation in progress)
 
+
 ## Development Plan
-Milestone 1: Build and Train Forecasting Model
-Collected and preprocessed stock data
-Implemented basic LSTM model
-Built interactive stock chart visualization
+Milestone 1: 
+* Build and Train Forecasting Model
+* Collected and preprocessed stock data
+* Implemented basic LSTM model
+* Built interactive stock chart visualization
+
 Milestone 2: Integrate LLM & Start UI Development
-Enhanced LSTM performance
-Integrated LLM API for generating explanations
-Started building the web app skeleton
+
+* Enhanced LSTM performance
+* Integrated LLM API for generating explanations
+* Started building the web app skeleton
+  
 Milestone 3: Polish & Optimize Full System
-Improved forecasting accuracy
-Finalized UI/UX components
-Fully integrated all modules into a seamless experience
+* Improved forecasting accuracy
+* Finalized UI/UX components
+* Fully integrated all modules into a seamless experience
+  
 🛠️ Technologies Used
 Frontend: React + TypeScript + Material UI
 Backend: Node.js / Express (planned)
