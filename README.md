@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+📊 Qubot - AI-Powered Trading Assistant
+Empowering beginner traders with AI-driven insights and intuitive visualizations 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Qubot is an AI-powered trading assistant designed to help novice investors make informed, data-driven decisions. By combining deep learning models (like LSTM and CNN) with LLMs (Large Language Models), we provide users with real-time stock trend analysis, predictions, and plain-language explanations—without requiring prior financial expertise.
 
-## Available Scripts
+✨ Project Overview
+Manual trading can be slow, error-prone, and influenced by emotional biases. Our goal is to build a transparent, user-centric platform that leverages AI to improve decision-making accuracy while keeping the user in control.
 
-In the project directory, you can run:
+Our system follows a human-in-the-loop approach , where AI handles complex data analysis, but users retain full authority over trade execution. This empowers traders with insights while reducing emotional bias and costly mistakes.
 
-### `npm start`
+We aim to democratize access to advanced trading tools and foster a more educated, confident generation of traders.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🧠 Key Features
+📈 Stock Market Data Visualizer : Interactive charts with technical indicators.
+🔮 LSTM Forecasting Model : Predictive analytics for short-term price movements.
+💬 LLM Integration : Human-readable explanations of trends and patterns.
+🔐 User Authentication : Login & registration portal.
+🧩 Future Extensions:
+Sentiment Analysis
+Automated Trading System
+Paper Trading / Simulation Mode
+👥 Target User
+Occupation: Fresh graduate, entry-level marketing executive
+Tech Proficiency: Moderate (comfortable with apps, but limited experience with trading platforms)
+Investment Experience: Beginner
+Goals:
+Grow wealth safely through smart investments
+Learn how to analyze market trends
+Build confidence in independent trading
+Avoid emotional or impulsive trading mistakes
+Pain Points:
+Overwhelmed by complex interfaces
+Unsure how to interpret market data
+Worried about making uninformed decisions
+Lack time for manual monitoring
+🚀 Current Progress (Milestone 1)
+✅ Stock Market Data Visualizer
+✅ Basic LSTM Forecasting Model
+✅ Login & Registration Portal
+✅ Initial integration with LLM API (fine-tuning and RAG implementation in progress)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📅 Development Plan
+Milestone 1: Build and Train Forecasting Model
+Collected and preprocessed stock data
+Implemented basic LSTM model
+Built interactive stock chart visualization
+Milestone 2: Integrate LLM & Start UI Development
+Enhanced LSTM performance
+Integrated LLM API for generating explanations
+Started building the web app skeleton
+Milestone 3: Polish & Optimize Full System
+Improved forecasting accuracy
+Finalized UI/UX components
+Fully integrated all modules into a seamless experience
+🛠️ Technologies Used
+Frontend: React + TypeScript + Material UI
+Backend: Node.js / Express (planned)
+AI Models: LSTM, CNN
+LLM: OpenAI API (GPT-based)
+Database: MongoDB / Firebase (planned)
