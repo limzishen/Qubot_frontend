@@ -1,9 +1,12 @@
 import React from "react";
 import { Box, Typography, Button, Container, Paper } from "@mui/material";
 import Header from "../components/header/Header";
+import { useNavigate } from 'react-router-dom';
 import placeholderImage from "../placeholder-image/placeholder.svg";
 
 export default function Home() {
+  const navigate = useNavigate();
+
   return (
     <>
       <Header />
@@ -79,6 +82,7 @@ export default function Home() {
                     boxShadow: 3,
                     "&:hover": { boxShadow: 6 },
                   }}
+                  onClick={() => navigate("/login")}
                 >
                   Get Started
                 </Button>

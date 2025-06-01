@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Home from './pages/Home';
 import Template from './pages/Template';
+import Login from './pages/Login';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import theme from './Theme';
 
@@ -13,6 +14,7 @@ function App() {
       
        <Route path="/" element={<Home />} />
        <Route path="/template" element={<Template />} />
+       <Route path="/login" element={<Login />} />
        
     </Routes>
     </ThemeProvider>
