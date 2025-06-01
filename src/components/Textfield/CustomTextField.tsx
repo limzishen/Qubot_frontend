@@ -24,18 +24,20 @@ function CustomTextField() {
         }
     };
     
-    
     return(
          <Box
         sx = {{ width: 4/9, 
-                height: 100,
+                height: 150,
                 backgroundColor: theme.palette.primary.main,
                 borderRadius: 5,
                 paddingTop: 2, 
-                margin: 2}}>
+                marginLeft: 1}}>
         <TextField value={value} 
                    onChange={(e) => setValue(e.target.value)}
-                   onKeyDown={handleKeyDown} />
+                   onKeyDown={handleKeyDown} 
+                   sx = {{borderRadius: 5,
+                            paddingTop: 2, 
+                            marginLeft: 1}}/>
         <p>{submitted}</p>
         </Box>
     ); 
