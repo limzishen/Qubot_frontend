@@ -1,4 +1,4 @@
-##📊 Qubot - AI-Powered Trading Assistant
+# Qubot - AI-Powered Trading Assistant
 Empowering beginner traders with AI-driven insights and intuitive visualizations 
 
 Qubot is an AI-powered trading assistant designed to help novice investors make informed, data-driven decisions. By combining deep learning models (like LSTM and CNN) with LLMs (Large Language Models), we provide users with real-time stock trend analysis, predictions, and plain-language explanations—without requiring prior financial expertise.
