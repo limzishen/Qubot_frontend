@@ -1,5 +1,5 @@
 import Header from "../components/header/Header"
-import React,  { useEffect, useState } from 'react';
+import React,  { useState } from 'react';
 import CandleStick from '../components/StockChart/CandleStick'; 
 import StockDataProps from '../types/StockDataProps';
 import { Autocomplete, TextField, Box } from '@mui/material';
@@ -12,6 +12,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import CssBaseline from '@mui/material/CssBaseline'; 
 import { useTheme } from '@mui/material/styles';
+import CustomTextField from "../components/Textfield/CustomTextField";
 
 function Template () {
 
@@ -57,7 +58,7 @@ function Template () {
               options={stockList}
               sx={{ width: 200,
                     backgroundColor: theme.palette.primary.main,
-                    borderRadius: 29, 
+                    borderRadius: 10, 
               }}
               renderInput={(params) => <TextField {...params} label="Ticker" />}
               value={tickerState} 
@@ -73,7 +74,7 @@ function Template () {
                 disableFuture
                 sx={{ width: 200,
                     backgroundColor: theme.palette.primary.main,
-                    borderRadius: 29,
+                    borderRadius: 10,
                 }}
                 />
                 </LocalizationProvider>
@@ -89,7 +90,7 @@ function Template () {
                     minDate={today.subtract(2, 'year')}
                     sx={{ width: 200,
                     backgroundColor: theme.palette.primary.main,
-                    borderRadius: 29,
+                    borderRadius: 10,
                 }}
                     />
                 </LocalizationProvider>
@@ -98,9 +99,15 @@ function Template () {
         
         <Box
         sx = {{ width: 4/9, 
-                height: 500,
-                color: '#535C91'}}>
+                height: 450,
+                backgroundColor: theme.palette.primary.main,
+                borderRadius: 5,
+                paddingTop: 2, 
+                marginLeft: 1}}>
         <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
+        </Box>
+        <Box>
+            <CustomTextField />
         </Box>
         </>
     ); 
