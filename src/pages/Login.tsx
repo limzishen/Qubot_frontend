@@ -13,10 +13,34 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff, Email, Lock } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const Login: React.FC = () => {
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
   const [showPassword, setShowPassword] = React.useState(false);
+  const [success, setSuccess] = React.useState<string | null>(null);
   const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:4000/api/users/login', {
+          email,
+          password
+        }, {
+          withCredentials: true
+        }
+      );
+        setTimeout(() => {
+            navigate("/template");
+        }, 2000);
+    } catch (error) {
+      console.error(error);
+      alert(" Login failed. Please try again.");
+    }
+  };
 
   return (
     <Box 
@@ -51,7 +75,7 @@ const Login: React.FC = () => {
           </Typography>
         </Box>
 
-        <Box component="form" noValidate sx={{ mt: 2 }}>
+        <Box component="form" noValidate sx={{ mt: 2 }} onSubmit={handleSubmit}>
           <TextField
             margin="normal"
             required
@@ -60,6 +84,7 @@ const Login: React.FC = () => {
             label="Email Address"
             name="email"
             autoComplete="email"
+            onChange={(e) => setEmail(e.target.value)}
             autoFocus
             InputProps={{
               startAdornment: (
@@ -85,6 +110,7 @@ const Login: React.FC = () => {
             type={showPassword ? "text" : "password"}
             id="password"
             autoComplete="current-password"
+            onChange={(e) => setPassword(e.target.value)}
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
@@ -157,7 +183,10 @@ const Login: React.FC = () => {
               <Link
                 component="button"
                 variant="body2"
-                onClick={() => navigate("/register")}
+                
+                onClick={(e) =>{
+                  e.preventDefault();
+                  navigate("/register")}}
                 sx={{
                   fontWeight: 600,
                   textDecoration: "none",
