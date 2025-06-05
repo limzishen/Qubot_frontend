@@ -3,10 +3,6 @@ import { TextField, Box } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
 import CallGenAI from '../Textfield/CallGenAI';
 
-
-
-
-
 function CustomTextField() {
     const theme = useTheme();
     const [value, setValue] = useState<string>(''); 
