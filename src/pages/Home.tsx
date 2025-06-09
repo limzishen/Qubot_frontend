@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Typography, Button, Container, Paper } from "@mui/material";
-import Header from "../components/header/Header";
+import Header from "@/components/header/Header";
 import { useNavigate } from 'react-router-dom';
 import placeholderImage from "../placeholder-image/placeholder.svg";
 
