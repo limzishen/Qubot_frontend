@@ -29,6 +29,7 @@
     "dotenv": "^16.5.0",
     "emailjs-com": "^3.2.0",
     "grid": "^4.10.8",
+    "mini.css": "^3.0.1",
     "openai": "^5.0.1",
     "react": "^19.1.0",
     "react-apexcharts": "^1.7.0",
@@ -41,12 +42,12 @@
     "web-vitals": "^2.1.4",
     "yahoo-finance": "^0.3.8"
   },
-"scripts": {
-  "start": "cross-env PORT=8080 craco start --openssl-legacy-provider",
-  "build": "craco build --openssl-legacy-provider",
-  "test": "craco test",
-  "eject": "react-scripts eject"
-},
+  "scripts": {
+    "start": "cross-env PORT=8080 craco start --openssl-legacy-provider",
+    "build": "craco build --openssl-legacy-provider",
+    "test": "craco test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
