@@ -1,10 +1,13 @@
-import '../styles/global.css' 
+import '@/index.css'
 
-export default function Navigate() {
+function Mainpage() {
     return (
-        <div> 
-            <h1> hello world </h1>
-        </div>
-    ); 
+        <> 
+            <blockquote cite="Benjaming Franklin"> 
+                Tell me and I forgot, teach me and I may remember, involve me and I learn. 
+            </blockquote>
+        </> 
+    )
 }
 
+export default Mainpage; 
