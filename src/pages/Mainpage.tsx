@@ -1,11 +1,12 @@
-import '@/index.css'
+//import '@/index.css'
+import { SideBar } from "../components/SideBar";
+import { GlobalStyle } from "../styles/global";
 
 function Mainpage() {
     return (
         <> 
-            <blockquote cite="Benjaming Franklin"> 
-                Tell me and I forgot, teach me and I may remember, involve me and I learn. 
-            </blockquote>
+            <SideBar/>
+            <GlobalStyle/>
         </> 
     )
 }
