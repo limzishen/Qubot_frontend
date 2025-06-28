@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Container, AppBar, Toolbar, Typography, Button, Tooltip, IconButton} from "@mui/material";
 import MenuIcon from "./MenuIcon"; 
+import { SideBar } from "../SideBar";
 
 function Header() {
     return (     
@@ -8,6 +9,7 @@ function Header() {
         sx={{   margin: '0px',
                 width: '100%', 
                 borderRadius: 29, 
+                marginTop: 1, 
                 marginBottom: 2,
                 backgroundColor: '#1B1A55'}}>
             <Container maxWidth="xl">

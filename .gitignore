@@ -20,3 +20,5 @@ serviceAccountKey.json
 # IDE-specific files (optional)
 /.vscode
 /.idea
+
+#package lock 

@@ -21,7 +21,7 @@ async function CallGenAI(input: string): Promise<string | null> {
         console.log(completion.choices[0].message.content);
         return completion.choices[0].message.content;
     } catch (error) {
-        console.log("API Key:", process.env.DEEPSEEK_API_KEY);
+        console.log("API Key:", process.env.REACT_APP_DEEPSEEK_API_KEY);
         console.log(`Error message: ${error}`);
         // DeepSeek 错误文档（需要确认官方是否有公开文档）
         console.log("For more information, see: https://docs.deepseek.com/"); 
