@@ -8,8 +8,8 @@ import { BsArrowRight, BsArrowLeft } from 'react-icons/bs';
 import { DiReact } from 'react-icons/di';
 import { RiLogoutCircleRLine } from 'react-icons/ri';
 
-import logoImg from "@/assets/images/user_sample.jpg";
-import userImg from "@/assets/images/user_sample.jpg";
+import logoImg from "../../assets/images/user_sample.jpg";
+import userImg from "../../assets/images/user_sample.jpg";
 
 export function SideBar() {
 	const [sideBar, setSideBar] = useState(false);

@@ -24,8 +24,8 @@ function CustomTextField() {
          <Box
         sx = {{ width: 4/9, 
                 height: 150,
-                backgroundColor: theme.palette.primary.main,
-                borderRadius: 5,
+                backgroundColor: '#ffffff',
+                borderRadius: 1,
                 paddingTop: 2, 
                 marginLeft: 1}}>
         <TextField value={value} 

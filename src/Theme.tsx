@@ -25,8 +25,8 @@ const theme = createTheme({
   },
   palette: {
     background: {
-      default: '#070F2B', // Light gray background
-      paper: '#535C91',    // White background for paper-like elements (e.g., Cards, Dialogs)
+      default: '#ffffff', // Light gray background
+      paper: '#ffffff',  
     },
     // You can also define primary, secondary, error, warning, info, success colors here
     primary: {
