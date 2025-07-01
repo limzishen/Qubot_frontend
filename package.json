@@ -47,9 +47,9 @@
     "yahoo-finance": "^0.3.8"
   },
   "scripts": {
-    "start": "PORT=8080 react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
-    "test": "react-scripts test",
+    "start": "cross-env PORT=8080 craco start --openssl-legacy-provider",
+    "build": "craco build --openssl-legacy-provider",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
