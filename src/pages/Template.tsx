@@ -1,20 +1,27 @@
 import Header from "../components/header/Header"
+
 import React,  { useState } from 'react';
+
 import CandleStick from '../components/StockChart/CandleStick'; 
 import StockDataProps from '../types/StockDataProps';
-import { Autocomplete, TextField, Box, CircularProgress, Typography } from '@mui/material';
-import { stockList } from './stockList'; 
-import dayjs, { Dayjs } from 'dayjs'; 
+import { stockList } from './stockList';
+
+import { Autocomplete, TextField, Box, CircularProgress, Typography, Paper } from '@mui/material';
 import Grid from '@mui/system/Grid';
+import { useTheme } from '@mui/material/styles';
+
+import dayjs, { Dayjs } from 'dayjs'; 
+
 
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
 import CssBaseline from '@mui/material/CssBaseline'; 
-import { useTheme } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
 
 import CallGenAI from '../components/Textfield/CallGenAI';
+
+import SummaryTable from "../components/Summary/SummaryTable";
 
 function Template () {
 
@@ -163,7 +170,7 @@ function Template () {
         </Paper>
         </Box>
         </Grid>
-        <Grid>
+            <Grid>
             <Paper elevation={3}
                 sx = {{
                     width: 1,
@@ -184,8 +191,8 @@ function Template () {
                         )}
             
             </Paper>
-
-        </Grid>
+            <SummaryTable ticker = 'AAPL' quarter = "Q1" year = {2025} />
+            </Grid>
         </Grid>
         
         </>
