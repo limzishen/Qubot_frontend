@@ -4,7 +4,6 @@ import { useTheme } from '@mui/material/styles';
 import CallGenAI from '../Textfield/CallGenAI';
 
 function CustomTextField() {
-    const theme = useTheme();
     const [value, setValue] = useState<string>(''); 
     const [submitted, setSubmitted] = useState('');
 
@@ -16,15 +15,12 @@ function CustomTextField() {
             if(data) {
                 setSubmitted(data);
             }
-        
         }
     };
     
     return(
          <Box
-        sx = {{ width: 4/9, 
-                height: 150,
-                backgroundColor: '#ffffff',
+        sx = {{
                 borderRadius: 1,
                 paddingTop: 2, 
                 marginLeft: 1}}>
