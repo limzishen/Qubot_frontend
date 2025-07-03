@@ -87,10 +87,19 @@ function Template () {
         <Header/>
         < Grid container spacing={2}
             sx={{
-                marginLeft: 1
+                marginLeft: 1,
+                display: 'flex', 
+                flexDirection: 'column',
+                gap: '10px', 
+                height:'100%',
             }}>
 
-        <Grid>
+        <Grid sx={{ 
+            display:'flex', 
+            flexDirection: 'row', 
+            width:'100%',
+            height:'70%',
+         }}>
             <Paper elevation={3}
                     sx = {{width: 1,
                         margin: 1
@@ -154,29 +163,15 @@ function Template () {
             <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
             </Box>
         </Paper>
-        <Box>
-        <Paper elevation={3}
-            sx = {{
-                width: 1,
-                margin: 1, 
-                padding: 2 
-            }}>
-        <TextField fullWidth value={value} 
-                   onChange={(e) => setValue(e.target.value)}
-                   onKeyDown={handleKeyDown} 
-                   label="Enter your query" 
-                   sx = {{
-                        borderRadius: 5,
-                        variant: "filled"}}/>
-        </Paper>
-        </Box>
+
+        <SummaryTable ticker = {tickerState || 'MSFT'} year = {2019} />
         </Grid>
-            <Grid>
+            <Grid sx={{ height:'30%' }}>
             <Paper elevation={3}
                 sx = {{
                     width: 1,
-                    margin: 1, 
-                    padding: 2 
+                    margin: 1,
+                    padding: 2
                 }}>
                     {isLoading ? (
                             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -190,11 +185,24 @@ function Template () {
                                 {submitted || "AI response will appear here."}
                             </Typography>
                         )}
-            
+           
             </Paper>
-            <SummaryTable ticker = {tickerState || 'MSFT'} year = {2019} />
+            <Paper elevation={3}
+                sx = {{
+                    width: 1,
+                    margin: 1,
+                    padding: 2
+                }}>
+            <TextField fullWidth value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    label="Enter your query"
+                    sx = {{
+                            borderRadius: 5,
+                            variant: "filled"}}/>
+            </Paper>
             </Grid>
-            </Grid>
+        </Grid>
         
         </>
     ); 
