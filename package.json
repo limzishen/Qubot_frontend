@@ -9,6 +9,7 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
+    "@mui/x-charts": "^8.6.0",
     "@mui/x-date-pickers": "^8.4.0",
     "@polygon.io/client-js": "^7.4.0",
     "@react-icons/all-files": "^4.1.0",

@@ -23,6 +23,7 @@ import CallGenAI from '../components/Textfield/CallGenAI';
 
 import SummaryTable from "../components/Summary/SummaryTable";
 
+
 function Template () {
 
     const theme = useTheme();
@@ -191,9 +192,9 @@ function Template () {
                         )}
             
             </Paper>
-            <SummaryTable ticker = 'AAPL' quarter = "Q1" year = {2025} />
+            <SummaryTable ticker = {tickerState || 'MSFT'} year = {2019} />
             </Grid>
-        </Grid>
+            </Grid>
         
         </>
     ); 
