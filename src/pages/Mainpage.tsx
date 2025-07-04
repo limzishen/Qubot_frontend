@@ -33,17 +33,19 @@ function Mainpage() {
                         boxSizing: "border-box",
                     }}
                 >
+                    <RectangleRegion sx={{ 
+                        display: 'flex', 
+                    }}>
+                        
+                    </RectangleRegion>
                     <RectangleRegion>
+                    </RectangleRegion>
+                    <RectangleRegion sx ={{ 
+                        display: 'flex',
+                        }}>
                         <StockList />
                     </RectangleRegion>
                     <RectangleRegion>
-                        <StockList />
-                    </RectangleRegion>
-                    <RectangleRegion>
-                        <StockList />
-                    </RectangleRegion>
-                    <RectangleRegion>
-                        <StockList />
                     </RectangleRegion>
                 </div>
             </div>
