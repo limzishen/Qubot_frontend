@@ -19,10 +19,11 @@ const Register: React.FC = () => {
     }
 
     //console.log("Sending data:", { userName: name, email, password });
+    const baseURL = 'https://qubot-backend.vercel.app';
 
     try {
-      const response = await axios.post('http://localhost:4000/api/users/signup', {
-          userName: name,
+      const response = await axios.post(`${baseURL}/api/users/signup/`, {
+          name: name,
           email,
           password
         }, {

@@ -10,9 +10,19 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 import { BarChart } from '@mui/x-charts/BarChart';
 
-function SummaryTable({ ticker, year }: SummaryTableProps) {
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import dayjs from 'dayjs';
 
-    const [currQuarter, setQuarter] = useState<number>(1); 
+
+function SummaryTable({ ticker }: SummaryTableProps) {
+
+    const [currQuarter, setQuarter] = useState<number>(0); 
+    const [year, setYear] = useState<number>(2025); 
+    const today = dayjs();
+    const [yearJs, setYearJs] = useState<dayjs.Dayjs | null>(today); 
+
 
     const [quarterlyData, setQuarterlyData] = useState<number[][]>([[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0 ], [0, 0, 0, 0, 0, 0 ]]);
     // revenue, gross profit, operation income, netincome, assets, net cash
@@ -20,6 +30,14 @@ function SummaryTable({ ticker, year }: SummaryTableProps) {
     const handleChange = (event: SelectChangeEvent) => {
         setQuarter(Number(event.target.value));
     };
+
+    const yearChange = (newYear: dayjs.Dayjs | null) => {
+        if (newYear) {
+            setYear(newYear.year());
+            setYearJs(newYear);
+        }
+    };
+
 
     const get = (path: string[], obj: object): number => {
         return path.reduce((acc: any, part: string) => acc && acc[part], obj) ?? 0;
@@ -117,9 +135,23 @@ function SummaryTable({ ticker, year }: SummaryTableProps) {
             <MenuItem value="3">Q4</MenuItem>
             </Select>
         </FormControl>
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+                label="Select Year"
+                views={['year']}
+                value={yearJs} // Bind the value to the dayjs year state
+                onChange={yearChange} // Use the new yearChange handler
+                sx={{ m: 1, minWidth: 120 }}
+                slotProps={{
+                    textField: {
+                        variant: 'standard',
+                    },
+                }}
+            />
+        </LocalizationProvider>
        
             <Typography variant="h6" gutterBottom>
-                Financial Summary for {ticker} FY{year} {` ${(currQuarter < 3) ? `Q${currQuarter + 1}` : 'FY'}`}
+                Financial Summary for {ticker} {year} {` ${(currQuarter < 3) ? `Q${currQuarter + 1}` : 'FY'}`}
             </Typography>
             <Typography>Revenue:</Typography>
             <Typography sx={{ fontWeight: 'bold' }}>{quarterlyData[currQuarter][0]}</Typography>

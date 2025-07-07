@@ -22,11 +22,13 @@ const Login: React.FC = () => {
   const [success, setSuccess] = React.useState<string | null>(null);
   const navigate = useNavigate();
 
+  const baseURL = 'https://qubot-backend.vercel.app';
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4000/api/users/login', {
+      const response = await axios.post(`${baseURL}/api/users/login/`, {
           email,
           password
         }, {
@@ -34,7 +36,7 @@ const Login: React.FC = () => {
         }
       );
         setTimeout(() => {
-            navigate("/template");
+            navigate("/dashboard");
         }, 2000);
     } catch (error) {
       console.error(error);

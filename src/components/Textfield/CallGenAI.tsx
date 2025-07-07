@@ -1,6 +1,8 @@
+const baseURL = 'https://qubot-backend.vercel.app';
+
 const CallGenAI = async (prompt: string): Promise<string> => {
     try {
-        const res = await fetch('http://localhost:4000/api/deepseek', {
+        const res = await fetch(`${baseURL}/api/deepseek/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
