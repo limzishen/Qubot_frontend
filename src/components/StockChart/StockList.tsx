@@ -6,7 +6,8 @@ import ListItemText from '@mui/material/ListItemText';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
 import { Stock } from '@/types/StockType';
 import StockCard from './StockCard';
-import AutoSizer from 'react-virtualized-auto-sizer'
+import AutoSizer from 'react-virtualized-auto-sizer'; 
+import './style.css'; 
 import { Typography } from '@mui/material';
 import { Height } from '@mui/icons-material';
 
@@ -20,14 +21,14 @@ const stocks: Stock[] = [
 
 function renderRow(props: ListChildComponentProps) {
   const { index, style } = props; 
+  const stock = stocks[index]; 
 
   return (
     <ListItem style={style} key={index} component="div" disablePadding> 
-      <ListItemButton>
-        <ListItemText primary={ 
-          <Typography style={{ color: '#000000' }}>
-          Item {index + 1}
-          </Typography>}/>
+      <ListItemButton sx={{ display:'flex', height: '100%', width: '100%'}}>
+        <Box flexDirection="column" width='100%' height='100%'> 
+          <StockCard symbol={stock.symbol}/> 
+        </Box> 
       </ListItemButton>
     </ListItem> 
   ); 

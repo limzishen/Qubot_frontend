@@ -33,19 +33,19 @@ const StockCard: React.FC<StockCardProps> = ({ symbol }) => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="stock-card">
-      <h2>{symbol}</h2>
-      <p className="price">${data?.c.toFixed(2)}</p>
-      <p className={`change ${data && data.d > 0 ? 'positive' : 'negative'}`}>
-        {data?.d} ({data?.dp}%)
-      </p>
-      <div className="details">
-        <p>High: ${data?.h}</p>
-        <p>Low: ${data?.l}</p>
-        <p>Open: ${data?.o}</p>
-        <p>Prev Close: ${data?.pc}</p>
-      </div>
+  <div className="stock-card">
+    <h2 className="symbol">{symbol}</h2>
+    <p className="price">${data?.c.toFixed(2)}</p>
+    <p className={`change ${data && data.d > 0 ? 'positive' : 'negative'}`}>
+      {data?.d} ({data?.dp}%)
+    </p>
+    <div className="details">
+      <p>High: ${data?.h}</p>
+      <p>Low: ${data?.l}</p>
+      <p className="open">Open: ${data?.o}</p>
+      <p>Prev Close: ${data?.pc}</p>
     </div>
+  </div>
   );
 };
 
