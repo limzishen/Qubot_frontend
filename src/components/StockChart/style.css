@@ -1,0 +1,27 @@
+.stock-card {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  color: #000000;
+}
+
+.price {
+  color: #388e3c;
+}
+
+.change.positive {
+  color: green;
+}
+
+.change.negative {
+  color: red;
+}
+
+.symbol {
+  color: #000000;
+}
+
+.open {
+    color: #000000;
+}

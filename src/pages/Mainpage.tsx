@@ -2,6 +2,7 @@ import { SideBar } from "../components/SideBar";
 import { GlobalStyle } from "../styles/global";
 import RectangleRegion from "@/components/Boxes/RectangleRegion";
 import StockList from "../components/StockChart/StockList";
+import StockCard from "../components/StockChart/StockCard"; 
 
 function Mainpage() {
     return (
@@ -33,17 +34,20 @@ function Mainpage() {
                         boxSizing: "border-box",
                     }}
                 >
+                    <RectangleRegion sx={{ 
+                        display: 'flex', 
+                    }}>
+                        
+                    </RectangleRegion>
                     <RectangleRegion>
+                    </RectangleRegion>
+                    <RectangleRegion sx ={{ 
+                        display: 'flex',
+                        }}>
                         <StockList />
                     </RectangleRegion>
                     <RectangleRegion>
-                        <StockList />
-                    </RectangleRegion>
-                    <RectangleRegion>
-                        <StockList />
-                    </RectangleRegion>
-                    <RectangleRegion>
-                        <StockList />
+                        <StockCard symbol="GOOGL"/> 
                     </RectangleRegion>
                 </div>
             </div>
