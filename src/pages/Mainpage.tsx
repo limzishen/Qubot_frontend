@@ -3,6 +3,9 @@ import { GlobalStyle } from "../styles/global";
 import RectangleRegion from "@/components/Boxes/RectangleRegion";
 import StockList from "../components/StockChart/StockList";
 import StockCard from "../components/StockChart/StockCard"; 
+import PieChartWithCenterLabel from '../components/StockChart/PieChart'
+import Box from '@mui/material/Box'; 
+import LabelsAboveBars from '../components/StockChart/BarChart'; 
 
 function Mainpage() {
     return (
@@ -36,9 +39,28 @@ function Mainpage() {
                 >
                     <RectangleRegion sx={{ 
                         display: 'flex', 
+                        flexDirection: 'row', 
                     }}>
+                        <Box sx ={{ 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+                            width: '100%', 
+                            height: '100%', 
+                        }}> 
+                            <PieChartWithCenterLabel/>
+                        </Box>
+                        <Box sx ={{ 
+                            display: 'flex', 
+                            alignItems: 'center', 
+                            justifyContent: 'center',
+                            width: '100%', 
+                            height: '100%', 
+                        }}> 
+                            <LabelsAboveBars/>
+                        </Box>
                         
-                    </RectangleRegion>
+                    </RectangleRegion>   
                     <RectangleRegion>
                     </RectangleRegion>
                     <RectangleRegion sx ={{ 

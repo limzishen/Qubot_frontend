@@ -29,8 +29,8 @@ const StockCard: React.FC<StockCardProps> = ({ symbol }) => {
     return () => clearInterval(interval);
   }, [symbol]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <p className="message">Loading...</p>;
+  if (error) return <p className="message">Error: {error}</p>;
 
   return (
   <div className="stock-card">
