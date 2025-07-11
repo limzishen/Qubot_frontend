@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef } from 'react';
 import Box from '@mui/material/Box'; 
 import ListItem from '@mui/material/ListItem'; 
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import { FixedSizeList, ListChildComponentProps } from 'react-window';
+import { VariableSizeList, ListChildComponentProps } from 'react-window';
 import { Stock } from '@/types/StockType';
 import StockCard from './StockCard';
 import AutoSizer from 'react-virtualized-auto-sizer'; 
@@ -19,6 +19,8 @@ const stocks: Stock[] = [
   { symbol: 'MSFT', name: 'Microsoft Corporation' },
 ];
 
+const getItemSize = (index: number) => 200;
+
 function renderRow(props: ListChildComponentProps) {
   const { index, style } = props; 
   const stock = stocks[index]; 
@@ -26,7 +28,13 @@ function renderRow(props: ListChildComponentProps) {
   return (
     <ListItem style={style} key={index} component="div" disablePadding> 
       <ListItemButton sx={{ display:'flex', height: '100%', width: '100%'}}>
-        <Box flexDirection="column" width='100%' height='100%'> 
+        <Box sx = {
+          {
+          display: 'flex', 
+          flexDirection: "column", 
+          width: '100%', 
+          height: '100%'}
+          } > 
           <StockCard symbol={stock.symbol}/> 
         </Box> 
       </ListItemButton>
@@ -35,55 +43,26 @@ function renderRow(props: ListChildComponentProps) {
 }
 
 export default function StockList() {
+  const listRef = useRef<VariableSizeList>(null);
   return (
     <Box
       sx={{ width: '100%', bgcolor: 'background.paper' }}
     >
       <AutoSizer> 
         {({ height, width} : {height:any, width:any}) => (
-        <FixedSizeList
+        <VariableSizeList
         className="List"
         height={height}
         width={width}
-        itemSize={100}
+        itemSize={getItemSize}
         itemCount={5}
         overscanCount={5}
       >
         {renderRow}
-      </FixedSizeList>
+      </VariableSizeList>
         )}
       </AutoSizer>
 
     </Box>
   );
 }
-
-/*
-const StockList: React.FC = () => {
-  const [selectedStock, setSelectedStock] = useState<Stock | null>(null);
-
-  return (
-    <div className="stock-dashboard">
-      <h1>Select a Stock</h1>
-      
-      <div className="stock-buttons">
-        {stocks.map((stock) => (
-          <button
-            key={stock.symbol}
-            className={`stock-button ${selectedStock?.symbol === stock.symbol ? 'selected' : ''}`}
-            onClick={() => setSelectedStock(stock)}
-          >
-            {stock.name} ({stock.symbol})
-          </button>
-        ))}
-      </div>
-
-      <div className="stock-card-container">
-        {selectedStock && <StockCard symbol={selectedStock.symbol} />}
-      </div>
-    </div>
-  );
-};
-
-export default StockList;
-*/
