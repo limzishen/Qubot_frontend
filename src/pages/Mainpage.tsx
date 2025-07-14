@@ -5,7 +5,9 @@ import StockList from "../components/StockChart/StockList";
 import StockCard from "../components/StockChart/StockCard"; 
 import PieChartWithCenterLabel from '../components/StockChart/PieChart'
 import Box from '@mui/material/Box'; 
-import LabelsAboveBars from '../components/StockChart/BarChart'; 
+import LabelsAboveBars from '../components/StockChart/BarChart';
+import BasicDateCalendar from '../components/Dashboard/Calendar'; 
+import Todolist from '../components/Dashboard/Todolist'; 
 
 function Mainpage() {
     return (
@@ -20,12 +22,11 @@ function Mainpage() {
                     overflow: "hidden",
                 }}
             >
-                {/* Sidebar */}
+
                 <div style={{ width: "70px", flexShrink: 0 }}>
                     <SideBar />
                 </div>
 
-                {/* Right content area with 4 rectangles */}
                 <div
                     style={{
                         flexGrow: 1,
@@ -61,8 +62,52 @@ function Mainpage() {
                         </Box>
                         
                     </RectangleRegion>   
-                    <RectangleRegion>
+                    <RectangleRegion
+                    sx={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        overflow: 'hidden',
+                        p: 2,
+                        boxSizing: 'border-box',
+                        gap: 2,
+                    }}
+                    >
+                    {/* Left – Calendar */}
+                    <Box
+                        sx={{
+                        flex: 2,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        height: '100%',
+                        bgcolor: 'background.paper',
+                        borderRadius: 2,
+                        p: 2,
+                        boxShadow: 1,
+                        }}
+                    >
+                        <BasicDateCalendar />
+                    </Box>
+
+                    {/* Right – Todolist */}
+                    <Box
+                        sx={{
+                        flex: 3,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'flex-start',
+                        height: '100%',
+                        overflowY: 'auto',
+                        bgcolor: 'background.paper',
+                        borderRadius: 2,
+                        p: 2,
+                        boxShadow: 1,
+                        }}
+                    >
+                        <Todolist />
+                    </Box>
                     </RectangleRegion>
+
                     <RectangleRegion sx ={{ 
                         display: 'flex',
                         }}>
