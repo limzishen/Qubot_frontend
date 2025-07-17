@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import LabelsAboveBars from '../components/StockChart/BarChart';
 import BasicDateCalendar from '../components/Dashboard/Calendar'; 
 import Todolist from '../components/Dashboard/Todolist'; 
+import NewsFeed from '../components/Dashboard/NewsDisplay'; 
 
 function Mainpage() {
     return (
@@ -112,6 +113,7 @@ function Mainpage() {
                         <StockList />
                     </RectangleRegion>
                     <RectangleRegion>
+                        <NewsFeed/>
                     </RectangleRegion>
                 </div>
             </div>
