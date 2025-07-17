@@ -72,7 +72,6 @@ function Mainpage() {
                         gap: 2,
                     }}
                     >
-                    {/* Left – Calendar */}
                     <Box
                         sx={{
                         flex: 2,
@@ -89,7 +88,6 @@ function Mainpage() {
                         <BasicDateCalendar />
                     </Box>
 
-                    {/* Right – Todolist */}
                     <Box
                         sx={{
                         flex: 3,
@@ -114,7 +112,6 @@ function Mainpage() {
                         <StockList />
                     </RectangleRegion>
                     <RectangleRegion>
-                        <StockCard symbol="GOOGL"/> 
                     </RectangleRegion>
                 </div>
             </div>
