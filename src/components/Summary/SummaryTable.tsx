@@ -101,8 +101,11 @@ function SummaryTable({ ticker, year }: SummaryTableProps) {
     return (
         <>
          <Paper elevation={3}
-                            sx = {{width: 0.9,
-                                margin: 1
+                            sx = {{width: 1,
+                                height: 1, 
+                                marginLeft: 2, 
+                                marginRight: 2,
+                                padding: 2
                             }}>
             <Box sx = {{margin : 1}}> 
         <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>

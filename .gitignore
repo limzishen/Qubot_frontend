@@ -22,3 +22,4 @@ serviceAccountKey.json
 /.idea
 
 #package lock 
+.vercel

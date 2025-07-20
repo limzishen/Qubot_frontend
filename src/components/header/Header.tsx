@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { Container, AppBar, Toolbar, Typography, Button, Tooltip, IconButton} from "@mui/material";
+import { Container, AppBar, Toolbar, Typography } from "@mui/material";
 import MenuIcon from "./MenuIcon"; 
 
 function Header() {
     return (     
         <AppBar position="static" 
-        sx={{   margin: '0px',
+        sx={{   margin: 1,
                 width: '100%', 
                 borderRadius: 29, 
                 marginTop: 1, 
