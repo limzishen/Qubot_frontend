@@ -12,6 +12,8 @@ function LSTMCard({ ticker }: LSTMCardProps) {
     const [latestDate, setLatestDate] = useState<string>('2025-01-01');
     const [loading, setLoading] = useState<boolean>(true);
 
+    const [forecastColor, setForecastColor] = useState<string>('black');
+
     useEffect(() => {
         const fetchData = async () => {
             const data = await FetchPrediction(ticker);
@@ -19,6 +21,12 @@ function LSTMCard({ ticker }: LSTMCardProps) {
                 setForecast(data.forecast);
                 setLatestPrice(data.latest_price);
                 setLatestDate(data.latest_date);
+
+                if (data.forecast >= data.latest_price) {
+                    setForecastColor('green');
+                } else if (data.forecast < data.latest_price) {
+                    setForecastColor('red');
+                }
             }
             setLoading(false);
         };
@@ -42,19 +50,28 @@ function LSTMCard({ ticker }: LSTMCardProps) {
                 </Box>
             ) : (
                 <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'left', padding: 2, width: '100%'}}>
-                <Typography variant="h6" gutterBottom>
-                    Forecast for {ticker}
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                    Forecast: {forecast}
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                    Latest Price: {latestPrice}
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                    Latest Date: {latestDate}
-                </Typography>
-            </Box>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold' }} gutterBottom>
+                        Forecast for {ticker}
+                    </Typography>
+                    <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }} gutterBottom>
+                        <Typography component="span" sx={{ fontWeight: 'bold' }}>Forecast:</Typography>{' '}
+                        <Typography component="span" sx={{ fontWeight: 'bold', color: forecastColor }}>
+                            {forecast}
+                        </Typography>
+                    </Typography>
+                    <Typography variant="body1" sx={{ mb: 1, color: 'text.secondary' }} gutterBottom>
+                        <Typography component="span" sx={{ fontWeight: 'bold' }}>Latest Price:</Typography>{' '}
+                        <Typography component="span" sx={{ fontWeight: 'normal' }}>
+                            {latestPrice}
+                        </Typography>         
+                    </Typography>
+                    <Typography variant="body1" sx={{ color: 'text.secondary' }} gutterBottom>
+                        <Typography component="span" sx={{ fontWeight: 'bold' }}>Latest Date:</Typography>{' '}
+                        <Typography component="span" sx={{ fontWeight: 'normal' }}>
+                        {latestDate || 'N/A'}
+                        </Typography>
+                    </Typography>
+                </Box>
             )}
         </Paper>
     );
