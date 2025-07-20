@@ -8,7 +8,6 @@ import { stockList } from './stockList';
 
 import { Autocomplete, TextField, Box, CircularProgress, Typography, Paper } from '@mui/material';
 import Grid from '@mui/system/Grid';
-import { useTheme } from '@mui/material/styles';
 
 import dayjs, { Dayjs } from 'dayjs'; 
 
@@ -23,10 +22,10 @@ import CallGenAI from '../components/Textfield/CallGenAI';
 
 import SummaryTable from "../components/Summary/SummaryTable";
 
+import LSTMCard from "../components/Lstm/LSTMCard";
+
 
 function Template () {
-
-    const theme = useTheme();
     const today = dayjs();
     const [tickerState, setTickerState] = useState<string | null>('MSFT');
     const [fromState, setFromState] = useState<string>(today.subtract(1, 'year').format('YYYY-MM-DD'));
@@ -87,12 +86,12 @@ function Template () {
         <Header/>
         < Grid container spacing={2}
             sx={{
-                marginLeft: 1,
                 display: 'flex', 
                 flexDirection: 'column',
                 gap: '10px', 
                 height:'100%',
-            }}>
+            }}
+            columns={{ xs: 4, sm: 8, md: 12 }}>
 
         <Grid sx={{ 
             display:'flex', 
@@ -102,7 +101,8 @@ function Template () {
          }}>
             <Paper elevation={3}
                     sx = {{width: 1,
-                        margin: 1
+                        marginLeft: 2, 
+                        padding: 2
                     }}>
             < Grid container spacing={2}
                 sx={{marginBottom: 2,
@@ -159,18 +159,27 @@ function Template () {
                     backgroundColor: '#ffffff',
                     borderRadius: 5,
                     paddingTop: 2, 
+                    marginBottom:1,
                     marginLeft: 1}}>
             <CandleStick ticker={props.ticker} from={props.from} to={props.to} />
             </Box>
         </Paper>
-
-        <SummaryTable ticker = {tickerState || 'MSFT'} year = {2019} />
+        
+        <Grid sx={{ height:'70%', 
+                    width: '100%'
+         }}>
+            <SummaryTable ticker = {tickerState || 'MSFT'} year = {2019} />
         </Grid>
+        
+        </Grid>
+        <LSTMCard ticker = {tickerState || 'MSFT'} />
             <Grid sx={{ height:'30%' }}>
             <Paper elevation={3}
                 sx = {{
                     width: 1,
-                    margin: 1,
+                    marginLeft: 2, 
+                    marginRight: 2,
+                    marginBottom: 1,
                     padding: 2
                 }}>
                     {isLoading ? (
@@ -190,7 +199,9 @@ function Template () {
             <Paper elevation={3}
                 sx = {{
                     width: 1,
-                    margin: 1,
+                    marginLeft: 2, 
+                    marginRight: 2,
+                    marginBottom: 1,
                     padding: 2
                 }}>
             <TextField fullWidth value={value}
