@@ -1,0 +1,30 @@
+.MuiTypography-root {
+  color: black !important;
+}
+
+.MuiTypography-subtitle2,
+.MuiTypography-h6,
+.MuiTypography-body2,
+.MuiTypography-caption {
+  color: black !important;
+}
+
+.MuiSelect-select {
+  color: black !important;
+}
+
+.MuiMenuItem-root {
+  color: black !important;
+}
+
+.MuiInputLabel-root {
+  color: black !important;
+}
+
+.MuiCardContent-root {
+  color: black !important;
+}
+
+.date-source {
+  color: black !important;
+}
