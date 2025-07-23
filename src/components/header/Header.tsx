@@ -1,8 +1,20 @@
 import * as React from 'react';
-import { Container, AppBar, Toolbar, Typography } from "@mui/material";
+import { Container, AppBar, Toolbar, Typography, Button } from "@mui/material";
 import MenuIcon from "./MenuIcon"; 
+import { useNavigate } from 'react-router-dom';
 
 function Header() {
+
+    const navigate = useNavigate(); 
+
+    const handleDashBoardClick = () => {
+        navigate('/dashboard'); 
+    }
+
+    const handleHomeClick = () => {
+        navigate('/navigate')
+    }
+
     return (     
         <AppBar position="static" 
         sx={{   margin: 1,
@@ -12,7 +24,7 @@ function Header() {
                 marginBottom: 2,
                 backgroundColor: '#1B1A55'}}>
             <Container maxWidth="xl">
-                <Toolbar disableGutters>
+                <Toolbar disableGutters sx={{ display: 'flex', alignItems: 'center' }}>
                     <MenuIcon/>
                     <Typography
                         variant="h6"
@@ -21,16 +33,47 @@ function Header() {
                         href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: 'none', md: 'flex' },
+                            display: { md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
+                            color: '#FFFFFF !important',
                             textDecoration: 'none',
                         }}
                     >
                         Qubot
                     </Typography>
+
+                    <Button
+                        variant="outlined" 
+                        color="inherit" 
+                        onClick={handleHomeClick}
+                        sx={{
+                            mr: 1,
+                            '&:hover': {
+                                backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+                                borderColor: 'rgba(255, 255, 255, 0.7)',  
+                            },
+                            borderColor: 'rgba(255, 255, 255, 0.5)',
+                        }}
+                    >
+                        Home
+                    </Button>
+                    <Button
+                        variant="outlined"
+                        color="inherit"
+                        onClick={handleDashBoardClick}
+                        sx={{
+                            mr: 1,
+                            '&:hover': {
+                                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                borderColor: 'rgba(255, 255, 255, 0.7)',
+                            },
+                            borderColor: 'rgba(255, 255, 255, 0.5)',
+                        }}
+                    >
+                        Dashboard
+                    </Button>
                 </Toolbar>
             </Container>
         </AppBar>
