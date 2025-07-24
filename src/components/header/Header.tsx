@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Container, AppBar, Toolbar, Typography, Button } from "@mui/material";
 import MenuIcon from "./MenuIcon"; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Header() {
-
+    const location = useLocation(); 
     const navigate = useNavigate(); 
 
     const handleDashBoardClick = () => {
@@ -14,6 +14,8 @@ function Header() {
     const handleHomeClick = () => {
         navigate('/navigate')
     }
+
+    const shouldDisableButtons = location.pathname === '/';
 
     return (     
         <AppBar position="static" 
@@ -43,7 +45,8 @@ function Header() {
                     >
                         Qubot
                     </Typography>
-
+                    {!shouldDisableButtons && (
+                        <>
                     <Button
                         variant="outlined" 
                         color="inherit" 
@@ -74,6 +77,8 @@ function Header() {
                     >
                         Dashboard
                     </Button>
+                    </> 
+                    )}
                 </Toolbar>
             </Container>
         </AppBar>
