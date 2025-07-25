@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Box,
   Typography,
@@ -8,38 +8,37 @@ import {
   Link,
   IconButton,
   InputAdornment,
-  FormControlLabel,
-  Checkbox,
 } from "@mui/material";
 import { Visibility, VisibilityOff, Email, Lock } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import { supabase, SupabaseSession } from '../supabaseClient';
 
-const Login: React.FC = () => {
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [showPassword, setShowPassword] = React.useState(false);
-  const [success, setSuccess] = React.useState<string | null>(null);
+
+const Login: React.FC = ()=> {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+      e.preventDefault();
+      setLoading(true);
 
-    try {
-      const response = await axios.post('http://localhost:4000/api/users/login', {
+      const { data, error } = await supabase.auth.signInWithPassword({
           email,
-          password
-        }, {
-          withCredentials: true
-        }
-      );
-        setTimeout(() => {
-            navigate("/template");
+          password,
+      });
+
+        if (error) {
+            alert(error.message);
+            setLoading(false);
+        } else {
+              setTimeout(() => {
+              navigate("/dashboard");
+              console.log(data)
         }, 2000);
-    } catch (error) {
-      console.error(error);
-      alert(" Login failed. Please try again.");
-    }
+    } 
   };
 
   return (
@@ -138,7 +137,7 @@ const Login: React.FC = () => {
             }}
           />
           
-          {/* Replaced Grid with Box */}
+          {/* Replaced Grid with Box
           <Box sx={{ 
             display: "flex", 
             justifyContent: "space-between", 
@@ -153,7 +152,7 @@ const Login: React.FC = () => {
             <Link href="#" variant="body2" color="primary">
               Forgot password?
             </Link>
-          </Box>
+          </Box> */}
 
           <Button
             type="submit"

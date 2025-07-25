@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { TextField, Box } from "@mui/material";
-import { useTheme } from '@mui/material/styles';
 import CallGenAI from '../Textfield/CallGenAI';
+import { MuiMarkdown } from 'mui-markdown';
+import ReactMarkdown from 'react-markdown';
 
 function CustomTextField() {
     const [value, setValue] = useState<string>(''); 
@@ -30,7 +31,7 @@ function CustomTextField() {
                    sx = {{borderRadius: 5,
                             paddingTop: 2, 
                             marginLeft: 1}}/>
-        <p>{submitted}</p>
+        <MuiMarkdown>{submitted}</MuiMarkdown>
         </Box>
     ); 
 }
