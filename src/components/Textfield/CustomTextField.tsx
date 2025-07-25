@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { TextField, Box } from "@mui/material";
 import CallGenAI from '../Textfield/CallGenAI';
 import { MuiMarkdown } from 'mui-markdown';
-import ReactMarkdown from 'react-markdown';
+import DisplayMessages from "./DisplayMessages";
+
 
 function CustomTextField() {
     const [value, setValue] = useState<string>(''); 
