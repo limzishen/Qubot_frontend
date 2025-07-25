@@ -13,10 +13,16 @@ import CssBaseline from '@mui/material/CssBaseline';
 import CallGenAI from '../components/Textfield/CallGenAI';
 import SummaryTable from "../components/Summary/SummaryTable";
 import LSTMCard from "../components/Lstm/LSTMCard";
+
+
+import AiChat from "../components/Textfield/AiChat";
+
+
 import { SideBar } from "../components/SideBar"; 
 import { GlobalStyle } from "../styles/global";
 
 function Template () {
+
     const today = dayjs();
     const [tickerState, setTickerState] = useState<string | null>('MSFT');
     const [fromState, setFromState] = useState<string>(today.subtract(1, 'year').format('YYYY-MM-DD'));
@@ -163,46 +169,16 @@ function Template () {
         </Grid>
         
         </Grid>
-        <LSTMCard ticker = {tickerState || 'MSFT'} />
-            <Grid sx={{ height:'30%' }}>
-            <Paper elevation={3}
-                sx = {{
-                    width: 1,
-                    marginLeft: 2, 
-                    marginRight: 2,
-                    marginBottom: 1,
-                    padding: 2
-                }}>
-                    {isLoading ? (
-                            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                                <CircularProgress size={30} />
-                                <Typography variant="body2">
-                                    Processing your request...
-                                </Typography>
-                            </Box>
-                        ) : (
-                            <Typography variant="body1" sx={{ textAlign: 'left', width: '100%' }}>
-                                {submitted || "AI response will appear here."}
-                            </Typography>
-                        )}
-           
-            </Paper>
-            <Paper elevation={3}
-                sx = {{
-                    width: 1,
-                    marginLeft: 2, 
-                    marginRight: 2,
-                    marginBottom: 1,
-                    padding: 2
-                }}>
-            <TextField fullWidth value={value}
-                    onChange={(e) => setValue(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    label="Enter your query"
-                    sx = {{
-                            borderRadius: 5,
-                            variant: "filled"}}/>
-            </Paper>
+        <Grid sx={{ height:'70%', 
+                    width: '100%'
+         }}>
+            <LSTMCard ticker = {tickerState || 'MSFT'} />
+         </Grid>
+        
+        <Grid sx={{ height:'70%', 
+                    width: '100%'
+         }}>
+                <AiChat/>
             </Grid>
         </Grid>
         

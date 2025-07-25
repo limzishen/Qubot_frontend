@@ -1,9 +1,28 @@
+import { supabase } from '../../supabaseClient'; 
+
 const CallGenAI = async (prompt: string): Promise<string> => {
+
     try {
+        const { data: { session }, error: sessionError } = await supabase.auth.getSession();
+
+
+        if (sessionError || !session) {
+            console.error('No active session found:', sessionError?.message);
+            return 'Error: Not authenticated. Please log in.';
+        }
+
+        const accessToken = session.access_token;
+        const { error } = await supabase.auth.getUser(accessToken);
+
+        if (error) {
+            console.log(supabase.auth.getUser(accessToken))
+        }
+
         const res = await fetch('http://localhost:4000/api/deepseek', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${accessToken}`,
             },
             body: JSON.stringify({ prompt }),
         });

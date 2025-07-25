@@ -2,7 +2,8 @@
 import React from "react";
 import { Box, Typography, TextField, Button, Paper } from "@mui/material";
 import { Link, useNavigate} from "react-router-dom";
-import axios from 'axios';
+import { supabase, SupabaseSession } from '../supabaseClient';
+
 
 const Register: React.FC = () => {
   const navigate = useNavigate();
@@ -20,23 +21,24 @@ const Register: React.FC = () => {
 
     //console.log("Sending data:", { userName: name, email, password });
 
-    try {
-      const response = await axios.post('http://localhost:4000/api/users/signup', {
-          userName: name,
-          email,
-          password
-        }, {
-          withCredentials: true
-        }
-      );
-        setTimeout(() => {
-            navigate("/login");
-        }, 2000);
-    } catch (error) {
-      console.error(error);
-      alert("Registration failed. Please try again.");
-    }
-  };
+     const { data, error } = await supabase.auth.signUp({
+              email,
+              password,
+              options: {
+                data: {
+                    first_name: name
+                }
+              }
+          });
+    
+    if (error) {
+        alert(error.message);
+    } else {
+          setTimeout(() => {
+          navigate("/dashboard");
+    }, 2000);
+    } 
+  }
   
 
 
