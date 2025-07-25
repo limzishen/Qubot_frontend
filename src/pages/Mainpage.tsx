@@ -2,13 +2,14 @@ import { SideBar } from "../components/SideBar";
 import { GlobalStyle } from "../styles/global";
 import RectangleRegion from "@/components/Boxes/RectangleRegion";
 import StockList from "../components/StockChart/StockList";
-import StockCard from "../components/StockChart/StockCard"; 
-import PieChartWithCenterLabel from '../components/StockChart/PieChart'
-import Box from '@mui/material/Box'; 
-import LabelsAboveBars from '../components/StockChart/BarChart';
-import BasicDateCalendar from '../components/Dashboard/Calendar'; 
-import Todolist from '../components/Dashboard/Todolist'; 
 import NewsFeed from '../components/Dashboard/NewsDisplay'; 
+import Header from "../components/header/Header";
+// import StockCard from "../components/StockChart/StockCard"; 
+// import PieChartWithCenterLabel from '../components/StockChart/PieChart'
+// import Box from '@mui/material/Box'; 
+// import LabelsAboveBars from '../components/StockChart/BarChart';
+// import BasicDateCalendar from '../components/Dashboard/Calendar'; 
+// import Todolist from '../components/Dashboard/Todolist'; 
 
 function Mainpage() {
     return (
@@ -17,15 +18,15 @@ function Mainpage() {
             <div
                 style={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
                     height: "100vh",
                     width: "100%",
                     overflow: "hidden",
                 }}
             >
 
-                <div style={{ width: "70px", flexShrink: 0 }}>
-                    <SideBar />
+                <div >
+                    <Header/>
                 </div>
 
                 <div
@@ -33,13 +34,12 @@ function Mainpage() {
                         flexGrow: 1,
                         display: "grid",
                         gridTemplateColumns: "repeat(2, 1fr)",
-                        gridTemplateRows: "repeat(2, 1fr)",
                         gap: "16px",
                         padding: "16px",
                         boxSizing: "border-box",
                     }}
                 >
-                    <RectangleRegion sx={{ 
+                    {/* <RectangleRegion sx={{ 
                         display: 'flex', 
                         flexDirection: 'row', 
                     }}>
@@ -105,7 +105,7 @@ function Mainpage() {
                     >
                         <Todolist />
                     </Box>
-                    </RectangleRegion>
+                    </RectangleRegion> */}
 
                     <RectangleRegion sx ={{ 
                         display: 'flex',
