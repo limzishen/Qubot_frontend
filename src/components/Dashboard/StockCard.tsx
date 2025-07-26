@@ -9,11 +9,11 @@ const StockCard: React.FC<StockCardProps> = ({ symbol }) => {
   const [data, setData] = useState<FinnhubStockData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-
+  const baseURL = `https://qubot-backend.vercel.app/`
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:4000/api/stocks?symbol=${symbol}`);
+        const response = await fetch(`${baseURL}api/stocks?symbol=${symbol}`);
         if (!response.ok) throw new Error('Network response was not ok');
         const result: FinnhubStockData = await response.json();
         setData(result);

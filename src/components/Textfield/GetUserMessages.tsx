@@ -15,8 +15,9 @@ const GetUserMessages = async () => {
         if (error) {
             console.log(supabase.auth.getUser(accessToken))
         }
-
-        const res = await fetch('http://localhost:4000/api/messages', {
+        
+        const baseURL = `https://qubot-backend.vercel.app/`
+        const res = await fetch(`${baseURL}api/messages`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

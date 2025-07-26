@@ -123,7 +123,7 @@ function DisplayMessages() {
                         <Box display="flex" justifyContent="center" p={2}>
                             <CircularProgress />
                         </Box>
-                    ) : messages && messages.length > 0 ? (
+                    ) : messages && messages.length > 1 ? (
                         <Box>
                             {messages.map((message, index) => (
                                 <MessageItem

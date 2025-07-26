@@ -59,8 +59,8 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login session={session}/>} />
+        <Route path="/register" element={<Register session={session}/>} />
         {/* Protected Routes - Wrap them with ProtectedRoute */}
         <Route
           path="/dashboard"

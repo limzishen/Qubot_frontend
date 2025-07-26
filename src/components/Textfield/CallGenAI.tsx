@@ -17,8 +17,9 @@ const CallGenAI = async (prompt: string): Promise<string> => {
         if (error) {
             console.log(supabase.auth.getUser(accessToken))
         }
+        const baseURL = `https://qubot-backend.vercel.app/`
 
-        const res = await fetch('http://localhost:4000/api/deepseek', {
+        const res = await fetch(`${baseURL}api/deepseek`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
