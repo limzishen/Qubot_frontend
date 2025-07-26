@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FinnhubStockData } from '@/types/FinnhubStockData';
+import './style.css'; 
 
 interface StockCardProps {
   symbol: string;
@@ -41,10 +42,10 @@ const StockCard: React.FC<StockCardProps> = ({ symbol }) => {
       {data?.d} ({data?.dp}%)
     </p>
     <div className="details">
-      <p>High: ${data?.h}</p>
-      <p>Low: ${data?.l}</p>
-      <p className="open">Open: ${data?.o}</p>
-      <p>Prev Close: ${data?.pc}</p>
+      <p className="details">High: ${data?.h}</p>
+      <p className="details">Low: ${data?.l}</p>
+      <p className="details">Open: ${data?.o}</p>
+      <p className="details">Prev Close: ${data?.pc}</p>
     </div>
   </div>
   );

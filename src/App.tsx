@@ -26,14 +26,13 @@ function App() {
         data: { subscription },
       } = supabase.auth.onAuthStateChange((_event, newSession) => {
         setSession(newSession);
-        setLoading(false); // Ensure loading is false once an event occurs
+        setLoading(false); 
         // You can add logic here to redirect on SIGNED_OUT, etc.
         if (_event === 'SIGNED_OUT') {
-          navigate('/login', { replace: true }); // Redirect to login on logout
+          navigate('/login', { replace: true });
         }
       });
 
-      // Cleanup subscription on component unmount
       return () => subscription.unsubscribe();
     }, [navigate]);
 

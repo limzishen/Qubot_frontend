@@ -39,11 +39,11 @@ const StockCard: React.FC<StockCardProps> = ({ symbol }) => {
     <p className={`change ${data && data.d > 0 ? 'positive' : 'negative'}`}>
       {data?.d} ({data?.dp}%)
     </p>
-    <div className="details">
-      <p>High: ${data?.h}</p>
-      <p>Low: ${data?.l}</p>
-      <p className="open">Open: ${data?.o}</p>
-      <p>Prev Close: ${data?.pc}</p>
+    <div>
+      <p >High: ${data?.h}</p>
+      <p >Low: ${data?.l}</p>
+      <p >Open: ${data?.o}</p>
+      <p >Prev Close: ${data?.pc}</p>
     </div>
   </div>
   );

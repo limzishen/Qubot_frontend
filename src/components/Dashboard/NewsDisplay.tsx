@@ -10,6 +10,7 @@ import {
   Select,
   MenuItem,
   InputLabel,
+  Link,
 } from '@mui/material';
 
 import { stockList } from '@/pages/stockList';
@@ -31,6 +32,9 @@ const NewsFeed: React.FC = () => {
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [selectedSymbol, setSelectedSymbol] = useState<string>('AAPL');
+  const uniqueNews = Array.from(new Set(news.map(article => article.id))).map(id => {
+    return news.find(article => article.id === id);
+  }).filter((article): article is NewsArticle => article !== undefined);
 
   useEffect(() => {
     const fetchNews = async () => {
@@ -106,7 +110,7 @@ const NewsFeed: React.FC = () => {
         display: 'flex',
         flexDirection: 'column',
         gap: 2,
-        maxHeight: 600,
+        maxHeight: 850,
         overflowY: 'auto',
       }}
     >
@@ -139,37 +143,65 @@ const NewsFeed: React.FC = () => {
       )}
 
       {!loading &&
-        news.slice(0, 5).map((article) => (
-          <Card
+        uniqueNews.slice(0, 5).map((article) => (
+          <Link
             key={article.id}
+            href={article.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            underline="none"
             sx={{
-              display: 'flex',
-              flexDirection: 'row',
-              gap: 2,
-              boxShadow: 2,
               borderRadius: 2,
+              '&:hover': {
+                boxShadow: 3,
+              },
             }}
           >
-            {article.image && (
-              <CardMedia
-                component="img"
-                image={article.image}
-                alt="news thumbnail"
-                sx={{ width: 150, objectFit: 'cover', borderRadius: '8px 0 0 8px' }}
-              />
-            )}
-            <CardContent sx={{ flex: 1 }}>
-              <Typography variant="subtitle2" color="text.secondary">
-                {new Date(article.datetime * 1000).toLocaleDateString()} • {article.source}
-              </Typography>
-              <Typography variant="h6" sx={{ mb: 1 }}>
-                {article.headline}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {article.summary}
-              </Typography>
-            </CardContent>
-          </Card>
+            <Card
+              sx={{
+                display: 'flex',
+                flexDirection: { xs: 'column', sm: 'row' },
+                gap: 2,
+                boxShadow: 2,
+                borderRadius: 2,
+                alignItems: 'stretch',
+                cursor: 'pointer',
+                transition: 'box-shadow 0.2s',
+              }}
+            >
+              {article.image && (
+                <CardMedia
+                  component="img"
+                  image={article.image}
+                  alt="news thumbnail"
+                  sx={{ 
+                    width: { sm: 150 },
+                    height: { sm: 'auto' },
+                    objectFit: 'cover',
+                    borderRadius: { xs: '8px 8px 0 0', sm: '8px 0 0 8px' }
+                  }}
+                />
+              )}
+              <CardContent sx={{ 
+                flex: 1,
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'space-between'
+              }}>
+                <Box>
+                  <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                    {new Date(article.datetime * 1000).toLocaleDateString()} • {article.source}
+                  </Typography>
+                  <Typography variant="h6" sx={{ mb: 1, fontWeight: 'bold' }}>
+                    {article.headline}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {article.summary}
+                  </Typography>
+                </Box>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
     </Box>
   );
