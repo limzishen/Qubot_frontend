@@ -37,6 +37,7 @@ const NewsFeed: React.FC = () => {
       setLoading(true);
       const today = new Date(); 
       const formatDate = (d: Date): string => d.toISOString().split('T')[0];
+      const baseURL = `https://qubot-backend.vercel.app/`
 
       async function fetchRange(daysBack: number): Promise<NewsArticle[]> {
         const fromDate = new Date();
@@ -45,7 +46,7 @@ const NewsFeed: React.FC = () => {
 
         try {
           const res = await fetch(
-            `http://localhost:4000/api/news?symbol=${encodeURIComponent(selectedSymbol)}&from=${fromStr}&to=${formatDate(today)}`
+            `${baseURL}api/news?symbol=${encodeURIComponent(selectedSymbol)}&from=${fromStr}&to=${formatDate(today)}`
           );
 
           if (!res.ok) {

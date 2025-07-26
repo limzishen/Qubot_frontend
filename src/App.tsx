@@ -10,6 +10,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import theme from './Theme';
 import { supabase, SupabaseSession } from './supabaseClient'; // Import supabase client and session type
 import ProtectedRoute from './components/ProtectedRoute';
+import Mainpage from './pages/Mainpage';
 
 function App() {
     const [session, setSession] = useState<SupabaseSession | null>(null);
@@ -58,8 +59,8 @@ function App() {
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login session={session}/>} />
+        <Route path="/register" element={<Register session={session}/>} />
         {/* Protected Routes - Wrap them with ProtectedRoute */}
         <Route
           path="/dashboard"
@@ -77,7 +78,16 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/navigate"
+          element={
+            <ProtectedRoute session={session} loading={loading}>
+              <Mainpage/> {/* Pass session to children if they need it */}
+            </ProtectedRoute>
+          }
+        />
       </Routes>
+      
     </ThemeProvider>
     </>
   );

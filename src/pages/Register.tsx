@@ -4,13 +4,22 @@ import { Box, Typography, TextField, Button, Paper } from "@mui/material";
 import { Link, useNavigate} from "react-router-dom";
 import { supabase, SupabaseSession } from '../supabaseClient';
 
+interface VerificationProps {
+  session: SupabaseSession | null;
+}
 
-const Register: React.FC = () => {
+
+const Register: React.FC<VerificationProps> = ({session}) => {
   const navigate = useNavigate();
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
+
+    if(session) {
+      navigate("/dashboard");
+      return null
+    }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

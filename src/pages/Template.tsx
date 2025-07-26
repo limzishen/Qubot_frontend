@@ -16,7 +16,7 @@ import LSTMCard from "../components/Lstm/LSTMCard";
 
 
 import AiChat from "../components/Textfield/AiChat";
-
+import DisplayMessages from "../components/Textfield/DisplayMessages";
 
 import { SideBar } from "../components/SideBar"; 
 import { GlobalStyle } from "../styles/global";
@@ -179,6 +179,23 @@ function Template () {
                     width: '100%'
          }}>
                 <AiChat/>
+        <Grid sx={{ height:'70%', 
+                    width: '100%'
+         }}>
+            <Box
+            sx = {{ 
+                    height: 450,
+                    backgroundColor: '#ffffff',
+                    borderRadius: 5,
+                    paddingTop: 2, 
+                    marginTop: 1,
+                    marginBottom:1,
+                    marginLeft: 1}}>
+                        <DisplayMessages/>      
+                </Box>
+            
+         </Grid>
+                
             </Grid>
         </Grid>
         

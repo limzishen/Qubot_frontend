@@ -13,13 +13,23 @@ import { Visibility, VisibilityOff, Email, Lock } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { supabase, SupabaseSession } from '../supabaseClient';
 
+interface VerificationProps {
+  session: SupabaseSession | null;
+}
 
-const Login: React.FC = ()=> {
+
+
+const Login: React.FC<VerificationProps> = ({session})=> {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  if(session) {
+    navigate("/dashboard");
+    return null
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
